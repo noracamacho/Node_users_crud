@@ -4,12 +4,12 @@ const express = require('express');
 const userRouter = express.Router();
 
 userRouter.route("/") // /users
-// Metodos a utilizar
+// Methods
         .get(getAll)
 .post(create);
 
 userRouter.route("/:id") // /user/:id
-// Metodos a utilizar
+// Methods
     .get(getOne)
     .delete(remove)
     .put(uppdate);

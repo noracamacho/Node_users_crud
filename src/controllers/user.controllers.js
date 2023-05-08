@@ -3,14 +3,12 @@ const User = require('../models/User');
 
 // getAll
 const getAll = catchError(async(req, res) => {
-    // Operaciones...
     const users = await User.findAll({ order: ['id'] });
     return res.json(users);
 });
 
 // Post - create
 const create = catchError(async(req, res) => {
-    // Traer los datos del body de postman
     const { first_name, last_name, email, password, birthday } = req.body;
     const user = await User.create({
         first_name,
@@ -19,7 +17,6 @@ const create = catchError(async(req, res) => {
         password, 
         birthday
     });
-    // Retornar el item creado
     return res.status(201).json(user);
 });
 
@@ -40,7 +37,6 @@ const remove = catchError(async(req, res) => {
 // Update
 const uppdate = catchError(async(req, res) => {
     const { id } = req.params;
-    // El primero es un objeto con los cambio a realizar, el segundo opciones
     const { first_name, last_name, email, password, birthday } = req.body;
     const user = await User.update(
         { first_name, last_name, email, password, birthday },
