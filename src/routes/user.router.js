@@ -5,7 +5,7 @@ const userRouter = express.Router();
 
 userRouter.route("/") // /users
 // Methods
-        .get(getAll)
+.get(getAll)
 .post(create);
 
 userRouter.route("/:id") // /user/:id
